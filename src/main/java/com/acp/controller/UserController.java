@@ -19,6 +19,7 @@ public class UserController{
 	
 	@PostMapping("/validate")
 	public User validateUser(@RequestParam(name="username") String username,@RequestParam(name="password") String password) {
+		System.out.println(username+" "+password);
 		User user = userservice.validate(username,password);
 		return user;
 	}

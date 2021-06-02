@@ -27,7 +27,7 @@
       <div class="card-body">
         <p class="login-box-msg">Sign in to start your session</p>
 
-        <form action="/user/validate" method="post">
+        <form method="post">
           <div class="input-group mb-3">
             <input type="text" name="username" class="form-control" placeholder="Username">
             <div class="input-group-append">
@@ -45,19 +45,9 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-8">
-              <div class="icheck-primary">
-                <input type="checkbox" id="remember">
-                <label for="remember">
-                  Remember Me
-                </label>
-              </div>
-            </div>
-            <!-- /.col -->
             <div class="col-4">
-              <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+              <button onclick=login() class="btn btn-primary btn-block">Sign In</button>
             </div>
-            <!-- /.col -->
           </div>
         </form>
 
@@ -73,7 +63,15 @@
     <!-- /.card -->
   </div>
   <!-- /.login-box -->
-
+  <!-- Custom Scripts -->
+  <script>
+  function login(){
+  	var formElement = document.querySelector("form");
+  	var request = new XMLHttpRequest();
+  	request.open("POST", "http://localhost:8080/user/validate");
+  	request.send(new FormData(formElement));
+  }
+  </script>
   <!-- jQuery -->
   <script src="../plugins/jquery/jquery.min.js"></script>
   <!-- Bootstrap 4 -->
